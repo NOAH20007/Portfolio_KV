@@ -22,6 +22,7 @@ export const profileData = {
   facebookUrl: "https://www.facebook.com/share/19wG3LjWvQ/?mibextid=wwXIfr",
   youtubeUrl: "https://www.youtube.com/@NOAHDigitalTech",
   tiktokUrl: "https://www.tiktok.com/@noah.digitaltech?_r=1&_t=ZS-9B5x6EKiVtJ",
+  portfolioUrl: "https://noah20007.github.io/Portfolio_KV/",
   email: "Khornvuthy20007@gmail.com",
 
   avatarSrc: profileImg,
@@ -242,13 +243,14 @@ export const cvData = {
       institution: "BELTEI International University",
       period: "2025 – Present",
       degree:
-        "Bachelor of Science in Software Engineering (Year 2, Semester 2)",
+        "Bachelor of Science in Software Engineering ( Year 2, Semester 2 )",
       bullets: [
         "Core curriculum focused on algorithms, software design fundamentals, and computer systems.",
       ],
     },
     {
-      institution: "High School & Secondary Education",
+      institution:
+        "High School & Secondary Education ( Kampong Thom Hight School )",
       period: "2019 – 2025",
       degree: "High School Diploma (2022–2025) • Secondary School (2019–2022)",
       bullets: [
@@ -263,7 +265,7 @@ export const cvData = {
         "Front-End Development, Software Engineering Fundamentals, Web Structure",
     },
     {
-      category: "Emerging Tech & IT:",
+      category: "AI & IT Support:",
       items:
         "Artificial Intelligence (AI Tools & Concepts), IT Support & Hardware Troubleshooting",
     },

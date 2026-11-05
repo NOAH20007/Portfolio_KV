@@ -65,20 +65,34 @@ export default function CvModal({ isOpen, onClose }) {
               <p className="text-sm sm:text-base font-bold text-blue-600 uppercase tracking-wider mt-0.5">
                 {profileData.shortRole}
               </p>
-              <div className="mt-3 space-y-1 text-xs sm:text-sm text-slate-600">
-                <div className="flex flex-wrap gap-x-5 gap-y-1">
-                  <span>
-                    <strong className="text-slate-900">Location:</strong>{" "}
-                    {profileData.fullAddress}
-                  </span>
-                  <span>
-                    <strong className="text-slate-900">Phone:</strong>{" "}
-                    {profileData.phone} / {profileData.telegram} (Telegram)
-                  </span>
+              <div className="mt-3 space-y-1.5 text-xs sm:text-sm text-slate-600">
+                <div>
+                  <strong className="text-slate-900">Location:</strong>{" "}
+                  {profileData.fullAddressCopy}
+                </div>
+                <div>
+                  <strong className="text-slate-900">Phone:</strong>{" "}
+                  {profileData.phone} / {profileData.telegram} ( Telegram )
                 </div>
                 <div>
                   <strong className="text-slate-900">Email:</strong>{" "}
-                  {profileData.email}
+                  <a
+                    href={`mailto:${profileData.email}`}
+                    className="text-slate-600 hover:underline"
+                  >
+                    {profileData.email}
+                  </a>
+                </div>
+                <div>
+                  <strong className="text-slate-900">Portfolio:</strong>{" "}
+                  <a
+                    href={profileData.portfolioUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 underline"
+                  >
+                    Click
+                  </a>
                 </div>
               </div>
             </div>
@@ -127,7 +141,7 @@ export default function CvModal({ isOpen, onClose }) {
                 {cvData.skills.map((skill) => (
                   <div
                     key={skill.category}
-                    className="grid grid-cols-1 sm:grid-cols-[180px_1fr] gap-0.5 sm:gap-4"
+                    className="grid grid-cols-1 sm:grid-cols-[180px_1fr] print:grid-cols-[180px_1fr] gap-0.5 sm:gap-4 print:gap-4"
                   >
                     <strong className="text-slate-900">{skill.category}</strong>
                     <span>{skill.items}</span>

@@ -175,8 +175,6 @@ ${message}
                     Telegram / Phone
                   </p>
                   <a
-                    href={profileData.telegramUrl}
-                    target="_blank"
                     rel="noopener noreferrer"
                     className="text-base font-bold text-slate-900 dark:text-white hover:text-sky-500"
                   >
