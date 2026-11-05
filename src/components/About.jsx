@@ -1,5 +1,5 @@
 import { aboutHighlights, profileData } from "../data/portfolioData";
-import aboutImg from "../assets/about.image.jpg";
+import aboutImg from "../assets/pro.png";
 
 export default function About() {
   return (

@@ -37,10 +37,12 @@ export default function Contact({ onCopyText, onShowToast, onOpenCvModal }) {
       return;
     }
 
-    const name = formData.name.trim();
-    const contact = formData.contact.trim();
-    const subject = formData.subject.trim();
-    const message = formData.message.trim();
+    const escapeMarkdown = (str) => str.replace(/([_*`\[])/g, "\\$1");
+
+    const name = escapeMarkdown(formData.name.trim());
+    const contact = escapeMarkdown(formData.contact.trim());
+    const subject = escapeMarkdown(formData.subject.trim());
+    const message = escapeMarkdown(formData.message.trim());
 
     const text = `📩 *New Portfolio Contact Message*
 ━━━━━━━━━━━━━━━━━━━━
@@ -66,14 +68,14 @@ ${message}
             text,
             parse_mode: "Markdown",
           }),
-        }
+        },
       );
 
       const data = await response.json();
 
       if (!response.ok || !data.ok) {
         throw new Error(
-          data.description || "Failed to send message via Telegram Bot API."
+          data.description || "Failed to send message via Telegram Bot API.",
         );
       }
 
@@ -93,7 +95,7 @@ ${message}
 
       setTimeout(() => {
         setStatus((prev) =>
-          prev.type === "success" ? { type: "", message: "" } : prev
+          prev.type === "success" ? { type: "", message: "" } : prev,
         );
       }, 3000);
     } catch (error) {
@@ -263,7 +265,7 @@ ${message}
                 </span> */}
               </div>
 
-              <div className="flex flex-wrap items-center gap-3">
+              <div className="flex flex-wrap justify-between items-center gap-3">
                 <a
                   href={profileData.githubUrl}
                   target="_blank"
@@ -358,7 +360,7 @@ ${message}
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      placeholder="e.g. Sokha Chan"
+                      placeholder="e.g. soknary"
                       className="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
                     />
                   </div>
@@ -440,7 +442,7 @@ ${message}
                   </div>
                 )}
 
-                <div className="flex flex-wrap items-center gap-3 pt-2">
+                <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
                   <button
                     type="submit"
                     disabled={isSending}
@@ -458,14 +460,15 @@ ${message}
                       </>
                     )}
                   </button>
-                  <button
-                    type="button"
-                    onClick="https://pay.ababank.com/oRF8/423p9aa6"
+                  <a
+                    href="https://pay.ababank.com/oRF8/423p9aa6"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="px-5 py-3.5 rounded-xl font-semibold bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition-all flex items-center gap-2 text-sm"
                   >
-                    <i className="fa-regular fa-file-lines text-brand-500"></i>
-                    <span>Pay Me Coffee</span>
-                  </button>
+                    <i className="fa-solid fa-mug-hot text-brand-500"></i>
+                    <span>KHQR</span>
+                  </a>
                 </div>
               </form>
             </div>
